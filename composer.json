@@ -2,7 +2,7 @@
   "name": "dinophp/bubbletemplate",
   "type": "library",
   "description": "Bubble, the flexible and secure template language for PHP",
-  "keywords": ["templating"],
+  "keywords": ["templating", "dinophp", "framework"],
   "homepage": "https://bubble.dinophp.com",
   "minimum-stability": "dev",
   "license": "BSD-3-Clause",
