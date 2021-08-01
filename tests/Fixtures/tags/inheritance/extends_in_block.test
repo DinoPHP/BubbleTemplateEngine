@@ -1,0 +1,10 @@
+--TEST--
+"extends" tag in a block
+--TEMPLATE--
+{% block foo %}
+    {% extends "foo.bubble" %}
+{% endblock %}
+--DATA--
+return []
+--EXCEPTION--
+Bubble\Error\SyntaxError: Cannot use "extend" in a block in "index.bubble" at line 3.

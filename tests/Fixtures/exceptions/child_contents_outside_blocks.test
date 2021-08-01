@@ -1,0 +1,15 @@
+--TEST--
+Exception for child templates defining content outside blocks defined by parent
+--TEMPLATE--
+{% extends 'base.bubble' %}
+
+Content outside a block.
+
+{% block sidebar %}
+    Content inside a block.
+{% endblock %}
+--TEMPLATE(base.bubble)--
+{% block sidebar %}
+{% endblock %}
+--EXCEPTION--
+Bubble\Error\SyntaxError: A template that extends another one cannot include content outside Bubble blocks. Did you forget to put the content inside a {% block %} tag in "index.bubble" at line 3?

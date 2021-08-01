@@ -1,0 +1,12 @@
+--TEST--
+Exception thrown from a child for an extension error
+--TEMPLATE--
+{% extends 'base.bubble' %}
+--TEMPLATE(base.bubble)--
+
+
+{{ random([]) }}
+--DATA--
+return []
+--EXCEPTION--
+Bubble\Error\RuntimeError: The random function cannot pick from an empty array in "base.bubble" at line 4.

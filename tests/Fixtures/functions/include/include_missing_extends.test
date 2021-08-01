@@ -1,0 +1,13 @@
+--TEST--
+"include" function
+--TEMPLATE--
+{{ include(['bad.bubble', 'good.bubble'], ignore_missing = true) }}
+NOT DISPLAYED
+--TEMPLATE(bad.bubble)--
+{% extends 'DOES NOT EXIST' %}
+--TEMPLATE(good.bubble)--
+NOT DISPLAYED
+--DATA--
+return []
+--EXCEPTION--
+Bubble\Error\LoaderError: Template "DOES NOT EXIST" is not defined in "bad.bubble" at line 2.

@@ -1,0 +1,16 @@
+--TEST--
+"include" tag
+--TEMPLATE--
+FOO
+{% include "foo.bubble" %}
+
+BAR
+--TEMPLATE(foo.bubble)--
+FOOBAR
+--DATA--
+return []
+--EXPECT--
+FOO
+
+FOOBAR
+BAR

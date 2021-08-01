@@ -1,0 +1,11 @@
+--TEST--
+"block" calling parent() with no definition in parent template
+--TEMPLATE--
+{% extends "parent.bubble" %}
+{% block label %}{{ parent() }}{% endblock %}
+--TEMPLATE(parent.bubble)--
+{{ block('label') }}
+--DATA--
+return array()
+--EXCEPTION--
+Bubble\Error\RuntimeError: Block "label" should not call parent() in "index.bubble" as the block does not exist in the parent template "parent.bubble" in "index.bubble" at line 3.

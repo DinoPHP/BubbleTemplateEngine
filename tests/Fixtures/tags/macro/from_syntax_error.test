@@ -1,0 +1,8 @@
+--TEST--
+"from" tag with syntax error
+--TEMPLATE--
+{% from 'forms.bubble' %}
+--DATA--
+return []
+--EXCEPTION--
+Bubble\Error\SyntaxError: Unexpected token "end of statement block" ("name" expected with value "import") in "index.bubble" at line 2.

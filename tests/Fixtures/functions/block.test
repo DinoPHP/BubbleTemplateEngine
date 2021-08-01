@@ -1,0 +1,12 @@
+--TEST--
+"block" function
+--TEMPLATE--
+{% extends 'base.bubble' %}
+{% block bar %}BAR{% endblock %}
+--TEMPLATE(base.bubble)--
+{% block foo %}{{ block('bar') }}{% endblock %}
+{% block bar %}BAR_BASE{% endblock %}
+--DATA--
+return []
+--EXPECT--
+BARBAR

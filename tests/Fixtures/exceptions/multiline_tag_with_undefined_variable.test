@@ -1,0 +1,12 @@
+--TEST--
+Exception for multiline tag with undefined variable
+--TEMPLATE--
+{% include 'foo'
+   with vars
+%}
+--TEMPLATE(foo)--
+Foo
+--DATA--
+return []
+--EXCEPTION--
+Bubble\Error\RuntimeError: Variable "vars" does not exist in "index.bubble" at line 3.

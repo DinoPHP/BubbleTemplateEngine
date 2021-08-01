@@ -1,0 +1,16 @@
+--TEST--
+"extends" tag
+--TEMPLATE--
+{% extends foo ? 'foo.bubble' : 'bar.bubble' %}
+--TEMPLATE(foo.bubble)--
+FOO
+--TEMPLATE(bar.bubble)--
+BAR
+--DATA--
+return ['foo' => true]
+--EXPECT--
+FOO
+--DATA--
+return ['foo' => false]
+--EXPECT--
+BAR

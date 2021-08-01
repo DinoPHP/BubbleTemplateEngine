@@ -1,0 +1,13 @@
+--TEST--
+"include" tag sandboxed
+--TEMPLATE--
+{{ include("foo.bubble", sandboxed = true) }}
+--TEMPLATE(foo.bubble)--
+
+
+{{ foo|e }}
+{{ foo|e }}
+--DATA--
+return []
+--EXCEPTION--
+Bubble\Sandbox\SecurityNotAllowedFilterError: Filter "e" is not allowed in "foo.bubble" at line 4.

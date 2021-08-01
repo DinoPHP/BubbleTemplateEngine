@@ -1,0 +1,23 @@
+--TEST--
+"use" tag
+--TEMPLATE--
+{% use "foo.bubble" with content as foo_content %}
+{% use "bar.bubble" %}
+
+{{ block('content') }}
+{{ block('foo') }}
+{{ block('bar') }}
+{{ block('foo_content') }}
+--TEMPLATE(foo.bubble)--
+{% block content 'foo' %}
+{% block foo 'foo' %}
+--TEMPLATE(bar.bubble)--
+{% block content 'bar' %}
+{% block bar 'bar' %}
+--DATA--
+return []
+--EXPECT--
+bar
+foo
+bar
+foo

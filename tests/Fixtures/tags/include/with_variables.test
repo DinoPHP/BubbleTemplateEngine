@@ -1,0 +1,14 @@
+--TEST--
+"include" tag accept variables
+--TEMPLATE--
+{% include "foo.bubble" with {'foo': 'bar'} %}
+{% include "foo.bubble" with vars1 %}
+{% include "foo.bubble" with vars2 %}
+--TEMPLATE(foo.bubble)--
+{{ foo }}
+--DATA--
+return ['vars1' => ['foo' => 'bar'], 'vars2' => new ArrayObject(['foo' => 'bar'])]
+--EXPECT--
+bar
+bar
+bar

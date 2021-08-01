@@ -1,0 +1,12 @@
+--TEST--
+"include" tag
+--TEMPLATE--
+{% include ["foo.bubble", "bar.bubble"] %}
+{% include ["bar.bubble", "foo.bubble"] %}
+--TEMPLATE(foo.bubble)--
+foo
+--DATA--
+return []
+--EXPECT--
+foo
+foo

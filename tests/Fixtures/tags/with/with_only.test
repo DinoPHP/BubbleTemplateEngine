@@ -1,0 +1,10 @@
+--TEST--
+"with" tag with expression and only
+--TEMPLATE--
+{% with {foo: 'foo', bar: 'BAZ'} only %}
+    {{ foo }}{{ bar }}{{ baz }}
+{% endwith %}
+--DATA--
+return ['foo' => 'baz', 'baz' => 'baz']
+--EXCEPTION--
+Bubble\Error\RuntimeError: Variable "baz" does not exist in "index.bubble" at line 3.

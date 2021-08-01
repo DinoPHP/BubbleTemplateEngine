@@ -1,0 +1,20 @@
+--TEST--
+"block" function with undefined block on deep inheritance
+--TEMPLATE--
+{% extends "base.bubble" %}
+{% block foo %}
+    {{ parent() }}
+    {{ block('unknown') }}
+    {{ block('bar') }}
+{% endblock %}
+--TEMPLATE(base.bubble)--
+{% extends "layout.bubble" %}
+{% block foo %}Foo{% endblock %}
+{% block bar %}Bar{% endblock %}
+--TEMPLATE(layout.bubble)--
+{% block foo %}Foo{% endblock %}
+{% block bar %}Bar{% endblock %}
+--DATA--
+return []
+--EXCEPTION--
+Bubble\Error\RuntimeError: Block "unknown" on template "layout.bubble" does not exist in "index.bubble" at line 5.

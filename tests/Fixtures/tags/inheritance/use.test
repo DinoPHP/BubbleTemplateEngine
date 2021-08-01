@@ -1,0 +1,44 @@
+--TEST--
+"parent" function
+--TEMPLATE--
+{% extends "parent.bubble" %}
+
+{% use "use1.bubble" %}
+{% use "use2.bubble" %}
+
+{% block content_parent %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content_use1 %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content_use2 %}
+    {{ parent() }}
+{% endblock %}
+
+{% block content %}
+    {{ block('content_use1_only') }}
+    {{ block('content_use2_only') }}
+{% endblock %}
+--TEMPLATE(parent.bubble)--
+{% block content_parent 'content_parent' %}
+{% block content_use1 'content_parent' %}
+{% block content_use2 'content_parent' %}
+{% block content '' %}
+--TEMPLATE(use1.bubble)--
+{% block content_use1 'content_use1' %}
+{% block content_use2 'content_use1' %}
+{% block content_use1_only 'content_use1_only' %}
+--TEMPLATE(use2.bubble)--
+{% block content_use2 'content_use2' %}
+{% block content_use2_only 'content_use2_only' %}
+--DATA--
+return []
+--EXPECT--
+    content_parent
+    content_use1
+    content_use2
+    content_use1_only
+    content_use2_only

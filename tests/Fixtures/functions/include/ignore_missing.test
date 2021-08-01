@@ -1,0 +1,10 @@
+--TEST--
+"include" function
+--TEMPLATE--
+{{ include(["foo.bubble", "bar.bubble"], ignore_missing = true) }}
+{{ include("foo.bubble", ignore_missing = true) }}
+{{ include("foo.bubble", ignore_missing = true, variables = {}) }}
+{{ include("foo.bubble", ignore_missing = true, variables = {}, with_context = true) }}
+--DATA--
+return []
+--EXPECT--

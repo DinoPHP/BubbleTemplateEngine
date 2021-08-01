@@ -1,0 +1,8 @@
+--TEST--
+"parent" tag
+--TEMPLATE--
+{% block content %}
+    {{ parent() }}
+{% endblock %}
+--EXCEPTION--
+Bubble\Error\SyntaxError: Calling "parent" on a template that does not extend nor "use" another template is forbidden in "index.bubble" at line 3.
