@@ -1,0 +1,10 @@
+--TEST--
+Bubble supports the ternary operator
+--TEMPLATE--
+{{ 1 ? 'YES' }}
+{{ 0 ? 'YES' }}
+--DATA--
+return []
+--EXPECT--
+YES
+

@@ -1,0 +1,22 @@
+--TEST--
+"block" function with a template argument
+--TEMPLATE--
+{{ block('foo', 'included.bubble') }}
+{{ block('foo', included_loaded) }}
+{{ block('foo', included_loaded_internal) }}
+{% set output = block('foo', 'included.bubble') %}
+{{ output }}
+{% block foo %}NOT FOO{% endblock %}
+--TEMPLATE(included.bubble)--
+{% block foo %}FOO{% endblock %}
+--DATA--
+return [
+    'included_loaded' => $bubble->load('included.bubble'),
+    'included_loaded_internal' => $bubble->load('included.bubble'),
+]
+--EXPECT--
+FOO
+FOO
+FOO
+FOO
+NOT FOO

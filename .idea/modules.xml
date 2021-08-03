@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/BubbleTemplateEngine.iml" filepath="$PROJECT_DIR$/.idea/BubbleTemplateEngine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/HummerTemplateEngine.iml" filepath="$PROJECT_DIR$/.idea/HummerTemplateEngine.iml" />
     </modules>
   </component>
 </project>

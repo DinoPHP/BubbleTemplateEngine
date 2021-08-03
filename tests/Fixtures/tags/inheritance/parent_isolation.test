@@ -1,0 +1,20 @@
+--TEST--
+"extends" tag
+--TEMPLATE--
+{% extends "base.bubble" %}
+{% block content %}{% include "included.bubble" %}{% endblock %}
+
+{% block footer %}Footer{% endblock %}
+--TEMPLATE(included.bubble)--
+{% extends "base.bubble" %}
+{% block content %}Included Content{% endblock %}
+--TEMPLATE(base.bubble)--
+{% block content %}Default Content{% endblock %}
+
+{% block footer %}Default Footer{% endblock %}
+--DATA--
+return []
+--EXPECT--
+Included Content
+Default Footer
+Footer

@@ -1,0 +1,16 @@
+--TEST--
+"include" function
+--TEMPLATE--
+{% extends "base.bubble" %}
+
+{% block content %}
+    {{ parent() }}
+{% endblock %}
+--TEMPLATE(base.bubble)--
+{% block content %}
+    {{ include("foo.bubble") }}
+{% endblock %}
+--DATA--
+return []
+--EXCEPTION--
+Bubble\Error\LoaderError: Template "foo.bubble" is not defined in "base.bubble" at line 3.

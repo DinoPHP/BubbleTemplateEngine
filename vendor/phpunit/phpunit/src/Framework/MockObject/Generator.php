@@ -266,7 +266,7 @@ final class Generator
             'Trait_'
         );
 
-        $classTemplate = $this->getTemplate('trait_class.bubble');
+        $classTemplate = $this->getTemplate('trait_class.tpl');
 
         $classTemplate->setVar(
             [
@@ -303,7 +303,7 @@ final class Generator
             'Trait_'
         );
 
-        $classTemplate = $this->getTemplate('trait_class.bubble');
+        $classTemplate = $this->getTemplate('trait_class.tpl');
 
         $classTemplate->setVar(
             [
@@ -393,7 +393,7 @@ final class Generator
 
         sort($_methods);
 
-        $methodTemplate = $this->getTemplate('wsdl_method.bubble');
+        $methodTemplate = $this->getTemplate('wsdl_method.tpl');
         $methodsBuffer  = '';
 
         foreach ($_methods as $method) {
@@ -438,7 +438,7 @@ final class Generator
 
         $optionsBuffer .= ']';
 
-        $classTemplate = $this->getTemplate('wsdl_class.bubble');
+        $classTemplate = $this->getTemplate('wsdl_class.tpl');
         $namespace     = '';
 
         if (strpos($className, '\\') !== false) {
@@ -654,7 +654,7 @@ final class Generator
      */
     private function generateMock(string $type, ?array $explicitMethods, string $mockClassName, bool $callOriginalClone, bool $callAutoload, bool $cloneArguments, bool $callOriginalMethods): MockClass
     {
-        $classTemplate        = $this->getTemplate('mocked_class.bubble');
+        $classTemplate        = $this->getTemplate('mocked_class.tpl');
         $additionalInterfaces = [];
         $mockedCloneMethod    = false;
         $unmockedCloneMethod  = false;

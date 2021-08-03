@@ -1,0 +1,10 @@
+--TEST--
+macro
+--TEMPLATE--
+{% import _self as macros %}
+
+{{ macros.unknown() }}
+--DATA--
+return []
+--EXCEPTION--
+Bubble\Error\RuntimeError: Macro "unknown" is not defined in template "index.bubble" in "index.bubble" at line 4.

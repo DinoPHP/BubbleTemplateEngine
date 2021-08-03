@@ -1,0 +1,22 @@
+--TEST--
+"block" tag
+--TEMPLATE--
+{% extends "foo.bubble" %}
+
+{% block content %}
+    {% block subcontent %}
+        {% block subsubcontent %}
+            SUBSUBCONTENT
+        {% endblock %}
+    {% endblock %}
+{% endblock %}
+--TEMPLATE(foo.bubble)--
+{% block content %}
+    {% block subcontent %}
+        SUBCONTENT
+    {% endblock %}
+{% endblock %}
+--DATA--
+return []
+--EXPECT--
+SUBSUBCONTENT

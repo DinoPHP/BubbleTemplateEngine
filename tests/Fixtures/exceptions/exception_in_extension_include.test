@@ -1,0 +1,12 @@
+--TEST--
+Exception thrown from an include for an extension error
+--TEMPLATE--
+{% include 'content.bubble' %}
+--TEMPLATE(content.bubble)--
+
+
+{{ random([]) }}
+--DATA--
+return []
+--EXCEPTION--
+Bubble\Error\RuntimeError: The random function cannot pick from an empty array in "content.bubble" at line 4.

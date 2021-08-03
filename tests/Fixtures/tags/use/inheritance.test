@@ -1,0 +1,25 @@
+--TEST--
+"use" tag
+--TEMPLATE--
+{% use "parent.bubble" %}
+
+{{ block('container') }}
+--TEMPLATE(parent.bubble)--
+{% use "ancestor.bubble" %}
+
+{% block sub_container %}
+    <div class="overridden_sub_container">overridden sub_container</div>
+{% endblock %}
+--TEMPLATE(ancestor.bubble)--
+{% block container %}
+    <div class="container">{{ block('sub_container') }}</div>
+{% endblock %}
+
+{% block sub_container %}
+    <div class="sub_container">sub_container</div>
+{% endblock %}
+--DATA--
+return []
+--EXPECT--
+<div class="container">    <div class="overridden_sub_container">overridden sub_container</div>
+</div>

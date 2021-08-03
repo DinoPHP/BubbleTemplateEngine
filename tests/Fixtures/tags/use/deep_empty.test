@@ -1,0 +1,10 @@
+--TEST--
+"use" tag
+--TEMPLATE--
+{% use "foo.bubble" %}
+--TEMPLATE(foo.bubble)--
+{% use "bar.bubble" %}
+--TEMPLATE(bar.bubble)--
+--DATA--
+return []
+--EXPECT--

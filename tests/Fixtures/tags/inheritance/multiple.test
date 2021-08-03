@@ -1,0 +1,12 @@
+--TEST--
+"extends" tag
+--TEMPLATE--
+{% extends "layout.bubble" %}{% block content %}{{ parent() }}index {% endblock %}
+--TEMPLATE(layout.bubble)--
+{% extends "base.bubble" %}{% block content %}{{ parent() }}layout {% endblock %}
+--TEMPLATE(base.bubble)--
+{% block content %}base {% endblock %}
+--DATA--
+return []
+--EXPECT--
+base layout index

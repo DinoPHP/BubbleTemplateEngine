@@ -1,0 +1,10 @@
+--TEST--
+"include" function accepts Bubble_Template instance
+--TEMPLATE--
+{{ include(foo) }} FOO
+--TEMPLATE(foo.bubble)--
+BAR
+--DATA--
+return ['foo' => $bubble->load('foo.bubble')]
+--EXPECT--
+BAR FOO

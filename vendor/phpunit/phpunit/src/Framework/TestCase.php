@@ -765,11 +765,11 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
 
             if ($runEntireClass) {
                 $template = new Template(
-                    __DIR__ . '/../Util/PHP/Template/TestCaseClass.bubble'
+                    __DIR__ . '/../Util/PHP/Template/TestCaseClass.tpl'
                 );
             } else {
                 $template = new Template(
-                    __DIR__ . '/../Util/PHP/Template/TestCaseMethod.bubble'
+                    __DIR__ . '/../Util/PHP/Template/TestCaseMethod.tpl'
                 );
             }
 
@@ -835,7 +835,7 @@ abstract class TestCase extends Assert implements Reorderable, SelfDescribing, T
             $includePath                = var_export(get_include_path(), true);
             $codeCoverageFilter         = var_export(serialize($codeCoverageFilter), true);
             $codeCoverageCacheDirectory = var_export(serialize($codeCoverageCacheDirectory), true);
-            // must do these fixes because TestCaseMethod.bubble has unserialize('{data}') in it, and we can't break BC
+            // must do these fixes because TestCaseMethod.tpl has unserialize('{data}') in it, and we can't break BC
             // the lines above used to use addcslashes() rather than var_export(), which breaks null byte escape sequences
             $data                       = "'." . $data . ".'";
             $dataName                   = "'.(" . $dataName . ").'";

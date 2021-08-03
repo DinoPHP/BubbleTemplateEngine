@@ -1,0 +1,16 @@
+--TEST--
+"include" tag sandboxed
+--TEMPLATE--
+{{ include("foo.bubble", sandboxed = true) }}
+{{ include("bar.bubble") }}
+--TEMPLATE(foo.bubble)--
+foo
+--TEMPLATE(bar.bubble)--
+{{ foo|e }}
+--DATA--
+return ['foo' => 'bar<br />']
+--EXPECT--
+foo
+
+
+bar&lt;br /&gt;

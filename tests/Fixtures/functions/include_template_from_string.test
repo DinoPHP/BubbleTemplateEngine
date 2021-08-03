@@ -1,0 +1,11 @@
+--TEST--
+"template_from_string" function works in an "include"
+--TEMPLATE--
+{% set embed = '{% embed "embed.bubble" %}{% endembed %}' %}
+{{ include(template_from_string(embed)) }}
+--TEMPLATE(embed.bubble)--
+Cool
+--DATA--
+return []
+--EXPECT--
+Cool

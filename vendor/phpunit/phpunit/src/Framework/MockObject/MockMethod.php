@@ -185,15 +185,15 @@ final class MockMethod
     public function generateCode(): string
     {
         if ($this->static) {
-            $templateFile = 'mocked_static_method.bubble';
+            $templateFile = 'mocked_static_method.tpl';
         } elseif ($this->returnType instanceof VoidType) {
             $templateFile = sprintf(
-                '%s_method_void.bubble',
+                '%s_method_void.tpl',
                 $this->callOriginalMethod ? 'proxied' : 'mocked'
             );
         } else {
             $templateFile = sprintf(
-                '%s_method.bubble',
+                '%s_method.tpl',
                 $this->callOriginalMethod ? 'proxied' : 'mocked'
             );
         }
@@ -202,7 +202,7 @@ final class MockMethod
 
         if (null !== $this->deprecation) {
             $deprecation         = "The {$this->className}::{$this->methodName} method is deprecated ({$this->deprecation}).";
-            $deprecationTemplate = $this->getTemplate('deprecation.bubble');
+            $deprecationTemplate = $this->getTemplate('deprecation.tpl');
 
             $deprecationTemplate->setVar(
                 [

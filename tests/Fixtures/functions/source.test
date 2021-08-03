@@ -1,0 +1,17 @@
+--TEST--
+"source" function
+--TEMPLATE--
+FOO
+{{ source("foo.bubble") }}
+
+BAR
+--TEMPLATE(foo.bubble)--
+{{ foo }}<br />
+--DATA--
+return []
+--EXPECT--
+FOO
+
+{{ foo }}<br />
+
+BAR

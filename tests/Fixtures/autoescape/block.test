@@ -1,0 +1,21 @@
+--TEST--
+blocks and autoescape
+--TEMPLATE--
+{{ include('unrelated.txt.bubble') -}}
+{{ include('template.html.bubble') -}}
+--TEMPLATE(unrelated.txt.bubble)--
+{% block content %}{% endblock %}
+--TEMPLATE(template.html.bubble)--
+{% extends 'parent.html.bubble' %}
+{% block content %}
+{{ br -}}
+{% endblock %}
+--TEMPLATE(parent.html.bubble)--
+{% set _content = block('content')|raw %}
+{{ _content|raw }}
+--DATA--
+return ['br' => '<br />']
+--CONFIG--
+return ['autoescape' => 'name']
+--EXPECT--
+&lt;br /&gt;

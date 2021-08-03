@@ -1,0 +1,14 @@
+--TEST--
+"parent" tag
+--TEMPLATE--
+{% use 'foo.bubble' %}
+
+{% block content %}
+    {{ parent() }}
+{% endblock %}
+--TEMPLATE(foo.bubble)--
+{% block content %}BAR{% endblock %}
+--DATA--
+return []
+--EXPECT--
+BAR

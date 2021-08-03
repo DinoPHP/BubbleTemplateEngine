@@ -1,0 +1,22 @@
+--TEST--
+sandbox tag
+--TEMPLATE--
+{%- sandbox %}
+    {%- include "foo.bubble" %}
+{%- endsandbox %}
+
+{%- sandbox %}
+    {%- include "foo.bubble" %}
+    {%- include "foo.bubble" %}
+{%- endsandbox %}
+
+{%- sandbox %}{% include "foo.bubble" %}{% endsandbox %}
+--TEMPLATE(foo.bubble)--
+foo
+--DATA--
+return []
+--EXPECT--
+foo
+foo
+foo
+foo

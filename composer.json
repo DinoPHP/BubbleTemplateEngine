@@ -1,47 +1,31 @@
 {
-    "name": "dinophp/bubbletemplate",
-    "description": "Bubble, the native PHP template system that's fast, easy to use and easy to extend.",
-    "keywords": [
-        "dinophp",
-        "package",
-        "templating",
-        "templates",
-        "views"
-    ],
-    "homepage": "https://bubble.dinophp.com",
-    "license": "MIT",
-    "authors" : [
-        {
-            "name": "Ahmed Mohamed Ibrahim",
-            "email": "ahmedmohamed@dinophp.com",
-            "role": "Developer"
-        }
-    ],
-    "require" : {
-        "php": "^7.0|^8.0"
-    },
-    "require-dev": {
-        "mikey179/vfsstream": "^1.6",
-        "phpunit/phpunit": "^9.5",
-        "squizlabs/php_codesniffer": "^3.5"
-    },
-    "autoload": {
-        "psr-4": {
-            "Dinophp\\Bubble\\": "src"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Dinophp\\Bubble\\Tests\\": "tests"
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "3.0-dev"
-        }
-    },
-    "scripts": {
-        "test": "phpunit --testdox",
-        "docs": "hugo -s doc server"
+  "name": "dinophp/bubbletemplate",
+  "type": "library",
+  "description": "Bubble, the flexible and secure template language for PHP",
+  "keywords": ["templating", "dinophp", "framework"],
+  "homepage": "https://bubble.dinophp.com",
+  "minimum-stability": "dev",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Ahmed Mohamed Ibrahim",
+      "email": "ahmedmohamed@dinophp.com"
     }
+  ],
+  "require": {
+      "php": ">=7.3",
+      "phpunit/phpunit": "9.5.7",
+      "friendsofphp/php-cs-fixer": "3.0.0",
+      "filp/whoops": "^2.14"
+  },
+  "autoload": {
+      "psr-4" : {
+        "Bubble\\" : "src/"
+      }
+  },
+  "autoload-dev": {
+    "psr-4" : {
+      "Bubble\\Tests\\" : "tests/"
+    }
+  }
 }

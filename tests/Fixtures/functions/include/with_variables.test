@@ -1,0 +1,12 @@
+--TEST--
+"include" function accept variables
+--TEMPLATE--
+{{ include("foo.bubble", {'foo': 'bar'}) }}
+{{- include("foo.bubble", vars) }}
+--TEMPLATE(foo.bubble)--
+{{ foo }}
+--DATA--
+return ['vars' => ['foo' => 'bar']]
+--EXPECT--
+bar
+bar

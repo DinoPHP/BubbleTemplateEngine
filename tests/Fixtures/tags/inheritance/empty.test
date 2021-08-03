@@ -1,0 +1,10 @@
+--TEST--
+"extends" tag
+--TEMPLATE--
+{% extends "foo.bubble" %}
+--TEMPLATE(foo.bubble)--
+{% block content %}FOO{% endblock %}
+--DATA--
+return []
+--EXPECT--
+FOO
