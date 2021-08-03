@@ -1,31 +1,27 @@
 {
-  "name": "dinophp/bubbletemplate",
-  "type": "library",
-  "description": "Bubble, the flexible and secure template language for PHP",
-  "keywords": ["templating", "dinophp", "framework"],
-  "homepage": "https://bubble.dinophp.com",
-  "minimum-stability": "dev",
-  "license": "BSD-3-Clause",
-  "authors": [
-    {
-      "name": "Ahmed Mohamed Ibrahim",
-      "email": "ahmedmohamed@dinophp.com"
+    "name": "dinophp/bubbletemplate",
+    "description": "A Bubble implementation in PHP.",
+    "keywords": ["templating", "bubble", "dinophp"],
+    "homepage": "https://github.com/DinoPHP/BubbleTemplateEngine",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ahmed Mohamed Ibrahim",
+            "email": "ahmedmohamed@dinophp.com",
+            "homepage": "https://bubble.dinophp.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.2.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~3.7|~4.0|~5.0",
+        "friendsofphp/php-cs-fixer": "~1.11"
+    },
+    "autoload": {
+        "psr-0": {
+            "Bubble": "src/"
+        }
     }
-  ],
-  "require": {
-      "php": ">=7.3",
-      "phpunit/phpunit": "9.5.7",
-      "friendsofphp/php-cs-fixer": "3.0.0",
-      "filp/whoops": "^2.14"
-  },
-  "autoload": {
-      "psr-4" : {
-        "Bubble\\" : "src/"
-      }
-  },
-  "autoload-dev": {
-    "psr-4" : {
-      "Bubble\\Tests\\" : "tests/"
-    }
-  }
 }

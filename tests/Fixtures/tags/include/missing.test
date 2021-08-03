@@ -1,8 +1,0 @@
---TEST--
-"include" tag
---TEMPLATE--
-{% include "foo.bubble" %}
---DATA--
-return []
---EXCEPTION--
-Bubble\Error\LoaderError: Template "foo.bubble" is not defined in "index.bubble" at line 2.
